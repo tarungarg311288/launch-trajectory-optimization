@@ -1,0 +1,4 @@
+4.56D-3			! radiation pressure of the sun at 1 AU distance in kiloN/km²
+149597870.691D0		! AU in km
+5778.D0			! effective temperature of the Sun in K
+5.67D-8			! Stefan-Boltzmann constant in W/(m²K^4)

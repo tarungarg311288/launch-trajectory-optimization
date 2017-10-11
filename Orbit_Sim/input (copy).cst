@@ -1,0 +1,95 @@
+399				! name or number of the central body
+0				! degree of gravity potential of central body [0;30]
+---mercuryhgm002c.txt		! file with the harmonic coeff. C_nm & S_nm of the central gravity pot.
+----------perturbing bodies-----------------------------------------------------------
+1				! perturbation by the Sun, 1 = on, 0 = off
+0				! perturbation by Mercury, 1 = on, 0 = off
+0				! perturbation by Venus, 1 = on, 0 = off
+1				! perturbation by Earth-Moon-Barycenter, 1 = on, 0 = off
+0				! perturbation by Mars, 1 = on, 0 = off
+0				! perturbation by Jupiter, 1 = on, 0 = off
+0				! perturbation by Saturn, 1 = on, 0 = off
+0				! perturbation by Uranus, 1 = on, 0 = off
+0				! perturbation by Neptune, 1 = on, 0 = off
+--399				! 1.  additional perturbing body (number or name)
+--6				! 2.  additional perturbing body (number or name)
+--Io				! 3.  additional perturbing body (number or name)
+--Europa			! 4.  additional perturbing body (number or name)
+------				! 5.  additional perturbing body (number or name)
+------				! 6.  additional perturbing body (number or name)
+------				! 7.  additional perturbing body (number or name)
+------				! 8.  additional perturbing body (number or name)
+------				! 9.  additional perturbing body (number or name)
+--1996FG3b			! 10.  additional perturbing body (number or name)
+0				! degree of gravity potential of 10. add. body [0;30]
+--coeff_jupiter.txt		! file with the harmonic coeff. (normalized) C_nm & S_nm of the gravity pot. of the 10. add. body
+---solar radiation pressure------------------------------------------------------------
+0				! perturbation solar radiation pressure, 1 = on, 0 = off
+0.d0				! surface size s1 mainbody [m^2]
+0.d0				! surface size s2 mainbody [m^2]
+0.d0				! surface size s3 mainbody [m^2]
+0.d0				! surface size s4 mainbody [m^2]
+0.d0				! surface size s5 mainbody [m^2]
+0.d0				! surface size s6 mainbody [m^2]
+2.7008d0			! surface size s7 mainbody [m^2]
+0.8D0				! reflectivity of s1
+0.8D0				! reflectivity of s2
+0.8D0				! reflectivity of s3
+0.8D0				! reflectivity of s4
+0.9D0				! reflectivity of s5
+0.8D0				! reflectivity of s6
+0.21D0				! reflectivity of s7
+-----------atmospheric drag-----------------------------------------------------------------
+0				! perturbation atmospheric drag, 1 = on, 0 = off
+2.3d0				! drag coefficient
+2.0925d-11			! rho_0 density at some reference height [kg/m^2] | density evolution:
+49.d0				! H* density scale height [km]   |  rho = rho_0*exp(-h/H*)
+64.d0				! cross-sectional area of satellite [m^2] (only for atmospheric drag)
+1275.D0				! in orbit wet mass of the satellite [kg] (used for atmospheric drag AND srp AND indirect srp)
+------------tidal potential------------------------------------------------------------
+0				! perturbation tidal potential (synchronous satellite only), 1 = on, 0 = off
+0.5				! k2 Love-number
+599				! tidal source (number or name)
+-2.4d0				! longitude of the sub-planet-point (e.g., sub-jovian point) [deg]
+-------indirect radiation pressure-----------------------------------------------------------
+0				! perturbation indirect radiation pressure, 1 = on, 0 = off
+0.12D0				! bond albedo 0.12
+100.D0				! minumum temperature on the night side (Kelvin)
+2				! number of concentric rings (min. 2)
+6				! number of elements in the innermost ring
+6				! augmentation of number of elements for the outer rings
+1				! output: albedo_thermal_acc.out (utc,days,accelerations), 1 = on, 0 = off
+--------integrator settings---------------------------------------------------------------------------
+'kernels.cst'				! file with paths of kernels used for computation
+26-nov-2011 15:02:00.000		! beginning of time interval, [utc]
+27-nov-2011 05:17:00.000		! end of time interval, [utc]
+3					! kind of integration method: 1 = RK4, 2 = RKFB, 3 = dop853, 4 = dlsode, 5 = dop853 with projection
+1.D-12					! relative tolerance for  x,  y,  z, vx, vy, vz = statevector(1-6)
+1.D-12					! abolute  tolerance for  x,  y,  z = statevector(1-3) in km        | pleas read: readme.txt
+1.D-12					! abolute  tolerance for vx, vy, vz = statevector(4-6) in km/s
+------------output settings------------------------------------------------------------------
+36				! output stepsize [sec]
+1				! output: sv_J2000(utc,et,days,sv(x,y,z,vx,vy,vz),jlc), lat_J2000(utc,et,days,mag,long,lat), 1 = on, 0 = off
+1				! output: oscelt_J2000(utc,et,days,pd,ecc,inc,lnode,aop,mea), 1 = on, 0 = off
+1				! output: sv_IAU_planet(utc,et,days,sv,dayornight), lat_IAU_Planet(utc,et,days,mag,long,lat) 1=on, 0=off
+1				! output: sv_PlanetIAU(utc,et,days,sv), lat_PlanetIAU(days,et,mag,long,lat), 1 = on, 0 = off
+0				! output: oscelt_PlanetIAU(utc,et,days,pd,ecc,inc,lnode,aop,mea), 1 = on, 0 = off
+1				! output: accelerations(utc,days,accelerations)(see readme.txt), 1 = on, 0 = off
+--------------output of visibility and distance of target T seen form observer O-------------------------
+0				! output: visibility(utc,et,days,vector(O,T),dist(O,T)[km],dist(O,T)[LT],view, zenithal angle at O [deg], zenithal angle at T[deg]), 1 = on, 0 = off
+0				! Correct for one-way light time and stellar aberration, 1 = on, 0 = off
+4				! O is: 1 - a ground station with ID (O1); 2 - a body fixed surface point (O2); 3 - a free cel. object (O3); 4 - the orbiter (O4)
+2175706				! if (O1) enter the ID of the groundstation; if (O2) enter the ID of the base body; if (O3) enter the ID of the free cel. object; line is ignored otherwise (O4)
+-30.d0				! if (O2) enter the geographical longitude [deg]; line is ignored otherwise (O1) (O3) (O4)
+0.d0				! if (O2) enter the geographical latitude  [deg]; line is ignored otherwise (O1) (O3) (O4)
+180.d0				! view angle of O [deg]; only apply for body fixed point O (O1) OR (O2)
+3				! T is: 1 - a ground station with ID (T1); 2 - a body fixed surface point (T2); 3 - a free cel. object (T3)
+10				! if (T1) enter the ID of the groundstation; if (T2) enter the ID of the base body; if (T3) enter the ID of the free cel. object
+0.d0				! if (T2) enter the geographical longitude [deg]; line is ignored otherwise (T1) (T3)
+0.d0				! if (T2) enter the geographical latitude  [deg]; line is ignored otherwise (T1) (T3)
+90.d0				! view angle of T [deg]; only apply for body fixed point T (T1) OR (T2)
+--599				! additional concealing object (number or name)
+---------------initial state as state vector (x y z vx vy vz) or in orbital elements (sma ecc inc lnode aop Mean anomaly)----
+1				! 0 = state vector provided, 1 = state in orbital elements (sma,ecc,inc,lnode,aop,Mean anomaly)
+1				! bodycentered coordinate system, 0 = J2000, 1 = planetIAU, 2 = IAU_planet (body-fixed)
+23528.673917697146, 0.7024906705543258, 1.5707963267948966, 0.0, 0.0, 180.0	! state [km,km,km,km/s,km/s,km/s] OR [km,-,deg,deg,deg,deg] 
